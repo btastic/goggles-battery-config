@@ -1,0 +1,14 @@
+{
+	"settings": {
+		"per_cell_mv": {
+			"name": "Warn voltage per cell (mV)",
+			"widget": "range",
+			"min": 2500,
+			"max": 3875,
+			"step": 125
+		}
+	},
+	"units": [
+		"battery-config"
+	]
+}

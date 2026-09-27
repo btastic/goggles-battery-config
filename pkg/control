@@ -1,0 +1,7 @@
+Package: battery-config
+Version: @VERSION@
+Maintainer: btastic_fpv
+Description: Change battery warning thresholds for your goggles
+Architecture: @ARCH@
+Depends: wtfos-modloader, wtfos-package-config
+Homepage: https://github.com/btastic/goggles-battery-config

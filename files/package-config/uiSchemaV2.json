@@ -1,0 +1,5 @@
+{
+    "per_cell_mv": {
+        "ui:help": "Warning (screen + buzzer) fires when pack voltage < cells x this value. Li-ion can safely run below the stock 3.50 V/cell. Applied on save; the goggles UI restarts automatically."
+    }
+}

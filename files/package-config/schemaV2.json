@@ -1,0 +1,26 @@
+{
+    "title": "Goggles Battery Warning",
+    "description": "Per-cell voltage at which the goggles' own battery warning (on-screen message + buzzer) fires. The goggles auto-detect cell count; the warning triggers when pack voltage < cells x this value. Lower thresholds are meant for Li-ion packs only. If you power your goggles with a LiPo or the original DJI battery, keep the stock setting so you are warned before discharging it too low.",
+    "type": "object",
+    "units": [ "battery-config" ],
+    "required": [],
+    "properties": {
+        "per_cell_mv": {
+            "type": "integer",
+            "title": "Warn voltage per cell",
+            "description": "Stock firmware uses 3.50 V/cell, which is conservative for Li-ion.",
+            "default": 3000,
+            "oneOf": [
+                { "const": 3500, "title": "3.50 (stock)" },
+                { "const": 3375, "title": "3.375" },
+                { "const": 3250, "title": "3.25" },
+                { "const": 3125, "title": "3.125" },
+                { "const": 3000, "title": "3.00 (recommended Li-ion)" },
+                { "const": 2875, "title": "2.875" },
+                { "const": 2750, "title": "2.75" },
+                { "const": 2625, "title": "2.625" },
+                { "const": 2500, "title": "2.50 (not recommended)" }
+            ]
+        }
+    }
+}

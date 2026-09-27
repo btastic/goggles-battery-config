@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build ipk
+        run: make ipk NDK="$ANDROID_NDK_LATEST_HOME"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ipk
+          path: build/*.ipk
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(sed -n 's/^VERSION *:= *//p' Makefile)
+          if [ "$GITHUB_REF_NAME" != "$version" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match Makefile VERSION $version"
+            exit 1
+          fi
+          gh release create "$GITHUB_REF_NAME" build/*.ipk --title "$GITHUB_REF_NAME" --generate-notes
