@@ -4,8 +4,15 @@
 			"name": "Warn voltage per cell (mV)",
 			"widget": "range",
 			"min": 2500,
-			"max": 3875,
+			"max": 3500,
 			"step": 125
+		},
+		"cells": {
+			"name": "Battery cells (0 = auto)",
+			"widget": "range",
+			"min": 0,
+			"max": 4,
+			"step": 1
 		}
 	},
 	"units": [

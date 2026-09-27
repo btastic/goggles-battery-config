@@ -1,6 +1,6 @@
 {
     "title": "Goggles Battery Warning",
-    "description": "Per-cell voltage at which the goggles' own battery warning (on-screen message + buzzer) fires. The goggles auto-detect cell count; the warning triggers when pack voltage < cells x this value. Lower thresholds are meant for Li-ion packs only. If you power your goggles with a LiPo or the original DJI battery, keep the stock setting so you are warned before discharging it too low.",
+    "description": "The goggles' own battery warning (on-screen message + buzzer) fires when pack voltage < cells x the per-cell voltage below. Lower thresholds are meant for Li-ion packs only. If you power your goggles with a LiPo or the original DJI battery, keep the stock setting so you are warned before discharging it too low.",
     "type": "object",
     "units": [ "battery-config" ],
     "required": [],
@@ -20,6 +20,18 @@
                 { "const": 2750, "title": "2.75" },
                 { "const": 2625, "title": "2.625" },
                 { "const": 2500, "title": "2.50 (not recommended)" }
+            ]
+        },
+        "cells": {
+            "type": "integer",
+            "title": "Battery cells",
+            "description": "The goggles detect the cell count from the pack voltage when they start. A pack that is not fully charged can be detected with too few cells (e.g. a 4S pack below 12.9 V as 3S), which makes the warning fire far too late. Set your pack's cell count to avoid this.",
+            "default": 0,
+            "oneOf": [
+                { "const": 0, "title": "Auto (stock)" },
+                { "const": 2, "title": "2S" },
+                { "const": 3, "title": "3S" },
+                { "const": 4, "title": "4S" }
             ]
         }
     }

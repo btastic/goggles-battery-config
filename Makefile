@@ -8,7 +8,7 @@
 
 PKG      := battery-config
 MOD      := battery_config
-VERSION  := 0.1.0
+VERSION  := 0.2.0
 ARCH     := pigeon-glasses
 UNIT     := battery-config
 MOD_NAME := lib$(MOD).so

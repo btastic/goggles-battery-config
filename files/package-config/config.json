@@ -1,3 +1,4 @@
 {
-    "per_cell_mv": 3000
+    "per_cell_mv": 3000,
+    "cells": 0
 }
